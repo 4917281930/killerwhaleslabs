@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" style="background:#060708">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="killerwhaleslabs tracks Bitcoin market signal and curated crypto airdrop opportunities."
+    />
+    <title>killerwhaleslabs</title>
+    <style>
+      html, body, #root { min-height: 100%; background: #060708; }
+      body { margin: 0; }
+      #boot-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        background: #060708;
+      }
+      .boot-spinner {
+        position: relative;
+        display: grid;
+        width: 64px;
+        height: 64px;
+        place-items: center;
+      }
+      .boot-spinner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 999px;
+        background: conic-gradient(from 0deg, #f7931a, rgba(247,147,26,.38), transparent 72%);
+        animation: boot-spin .8s linear infinite;
+      }
+      .boot-spinner::after {
+        content: "";
+        position: absolute;
+        inset: 3px;
+        border-radius: 999px;
+        background: #060708;
+      }
+      .boot-bitcoin {
+        position: relative;
+        z-index: 1;
+        width: 44px;
+        height: 44px;
+        filter: drop-shadow(0 0 14px rgba(247,147,26,.34));
+      }
+      @media (min-width: 640px) {
+        .boot-spinner { width: 80px; height: 80px; }
+        .boot-bitcoin { width: 54px; height: 54px; }
+      }
+      @media (min-width: 1024px) {
+        .boot-spinner { width: 96px; height: 96px; }
+        .boot-bitcoin { width: 65px; height: 65px; }
+      }
+      @keyframes boot-spin { to { transform: rotate(360deg); } }
+    </style>
+  </head>
+  <body style="background:#060708">
+    <div id="boot-loader" aria-hidden="true">
+      <div class="boot-spinner">
+        <svg class="boot-bitcoin" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="30" fill="#F7931A" />
+          <path fill="#fff" d="M41.1 30.5c2.4-1.2 3.8-3.2 3.5-6.2-.4-4.1-4-5.5-8.5-5.9l1.2-4.8-2.9-.7-1.1 4.6c-.8-.2-1.5-.4-2.3-.5l1.1-4.7-2.9-.7-1.2 4.8-5.8-1.4-.8 3.2s2.1.5 2.1.5c1.2.3 1.4 1.1 1.4 1.7l-3.2 12.9c-.1.4-.5 1-1.4.8 0 0-2.1-.5-2.1-.5l-1.5 3.5 5.8 1.4-1.2 4.9 2.9.7 1.2-4.8c.8.2 1.6.4 2.3.6l-1.2 4.8 2.9.7 1.2-4.9c5 .9 8.8.5 10.4-4 .9-3.6-.2-5.7-2.9-7.1Zm-12.4-9.4 5.4 1.4c2.1.5 3.5 1.4 3 3.5-.5 2-2.3 2.3-4.4 1.8l-5.4-1.3 1.4-5.4Zm-2.1 8.5 6.2 1.5c2.5.6 4.1 1.7 3.5 4.1-.6 2.3-2.7 2.5-5.1 1.9L25 35.6l1.6-6Z" />
+        </svg>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
