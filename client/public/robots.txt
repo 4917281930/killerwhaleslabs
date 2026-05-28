@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /airdrops
+Disallow: /lab-console
+Disallow: /api/
+
+Sitemap: https://killerwhaleslabs.com/sitemap.xml

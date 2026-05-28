@@ -1,0 +1,48 @@
+{
+  "name": "killerwhaleslabs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "client:dev": "vite --config client/vite.config.js --host 0.0.0.0",
+    "server:dev": "nodemon server/server.js",
+    "server:start": "node server/server.js",
+    "build": "vite build --config client/vite.config.js",
+    "typecheck": "tsc --noEmit -p client/tsconfig.json",
+    "preview": "vite preview --config client/vite.config.js --host 0.0.0.0",
+    "seed": "node server/db/seed.js",
+    "admin:reset-password": "node server/scripts/resetAdminPassword.js",
+    "migrate:logo-blobs": "node server/scripts/migrateLogoBlobs.js",
+    "start": "node server/server.js",
+    "start:pm2": "pm2 start deploy/pm2.config.cjs --env production",
+    "stop:pm2": "pm2 stop killerwhaleslabs-api",
+    "logs": "pm2 logs killerwhaleslabs-api",
+    "deploy": "npm ci && npm run build && npm run seed"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "lucide-react": "^0.468.0",
+    "morgan": "^1.10.1",
+    "rate-limiter-flexible": "^11.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.30.3",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.18",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^6.0.3",
+    "vite": "^5.1.5"
+  }
+}
